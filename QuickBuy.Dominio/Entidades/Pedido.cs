@@ -10,7 +10,7 @@ namespace QuickBuy.Dominio.Entidades
         public int Id { get; set; }
         public DateTime DataPedido { get; set; }
         public int UsuarioId { get; set; }
-        public ICollection <ItemPedido> ItensPedidos { get; set; }
+        public ICollection<ItemPedido> ItensPedidos { get; set; }
         public DateTime DataPrevisaoEntrega { get; set; }
         public string CEP { get; set; }
         public string Estado { get; set; }
@@ -23,12 +23,16 @@ namespace QuickBuy.Dominio.Entidades
         public override void Validate()
         {
             LimparMensagensValidacao();
-           if (!ItensPedidos.Any())
-               mensagemValidacao.Add("Erro : Pedido nao pode ficar sem item de pedido");
+            if (!ItensPedidos.Any())
+                AdicionarCritica("Critica : pedido nao pode ficar sem item de pedido");
 
-           if(string.IsNullOrEmpty(CEP))
+            if (string.IsNullOrEmpty(CEP))
+                AdicionarCritica("Critica : CEP deve estar preenchido");
 
+            if(FormaPagamentoId == 0)
+                AdicionarCritica("Critica : Nao foi infomado a forma de pagamento");
 
+            
         }
     }
 }
