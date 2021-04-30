@@ -18,7 +18,7 @@ namespace QuickBuy.Web
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+            WebHost.CreateDefaultBuilder(args).UseKestrel()
                 .UseStartup<Startup>();
     }
 }
