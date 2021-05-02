@@ -30,8 +30,12 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\autorizacao\guarda.rotas.ts" />
-    <None Remove="ClientApp\src\app\modelo\usuario.ts" />
+    <None Remove="ClientApp\src\app\modelo\ambiente\base.url.api.ts" />
+    <None Remove="ClientApp\src\app\modelo\produto\produto.ts" />
+    <None Remove="ClientApp\src\app\modelo\usuario\usuario.ts" />
+    <None Remove="ClientApp\src\app\servicos\produto\produto.servico.ts" />
     <None Remove="ClientApp\src\app\servicos\usuario\usuario.servico.ts" />
+    <None Remove="ClientApp\src\app\usuario\cadastro\cadastro.usuario.component.ts" />
     <None Remove="ClientApp\src\app\usuario\login\login.component.ts" />
   </ItemGroup>
 
@@ -46,8 +50,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\src\app\servicos\produto\" />
-    <Folder Include="ClientApp\src\app\usuario\cadastro\" />
+    <TypeScriptCompile Update="ClientApp\src\app\modelo\usuario\usuario.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ClientApp\src\assets\js\" />
+    <Folder Include="ClientApp\src\assets\css\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

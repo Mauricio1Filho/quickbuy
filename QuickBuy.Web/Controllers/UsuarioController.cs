@@ -18,11 +18,11 @@ namespace QuickBuy.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Get()
+        public ActionResult Get([FromQuery]string nome)
         {
             try
             {
-                return Ok();
+                return Ok(_usuarioRepositorio.ObterTodos());
             }
             catch (Exception ex)
             {
@@ -47,10 +47,15 @@ namespace QuickBuy.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Post()
+        public ActionResult Post([FromBody] Usuario usuario)
         {
             try
             {
+                var usuarioCadastrado = _usuarioRepositorio.Obter(usuario.Email);
+                if (usuarioCadastrado != null)
+                    return BadRequest("Usuario ja cadastrado");
+
+                _usuarioRepositorio.Adicionar(usuario);
                 return Ok();
             }
             catch (Exception ex)
