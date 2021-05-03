@@ -2,6 +2,7 @@ import { Inject, Injectable, OnInit, } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Produto } from "../../modelo/produto/produto";
+import { BaseUrlApi } from "../../modelo/ambiente/base.url.api";
 
 @Injectable({
   providedIn: "root"
@@ -9,11 +10,11 @@ import { Produto } from "../../modelo/produto/produto";
 
 export class ProdutoServico implements OnInit {
 
-  private _baseUrl: string;
+  private _baseUrlApi: BaseUrlApi;
   public produtos: Produto[];
 
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    this._baseUrl = baseUrl;
+  constructor(private http: HttpClient, baseUrlApi: BaseUrlApi) {
+    this._baseUrlApi = baseUrlApi;
   }
 
   ngOnInit(): void {
@@ -25,28 +26,28 @@ export class ProdutoServico implements OnInit {
   }
 
   public cadastrar(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(this._baseUrl + "http://localhost:5005/api/produto/cadastrar", JSON.stringify(produto), { headers: this.headers });
+    return this.http.post<Produto>(this._baseUrlApi.produto + "api/produto/cadastrar", JSON.stringify(produto), { headers: this.headers });
   }
 
   public salvar(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(this._baseUrl + "http://localhost:5005/api/produto/salvar", JSON.stringify(produto), { headers: this.headers });
+    return this.http.post<Produto>(this._baseUrlApi.produto + "api/produto/salvar", JSON.stringify(produto), { headers: this.headers });
   }
 
   public deletar(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(this._baseUrl + "http://localhost:5005/api/produto/deletar", JSON.stringify(produto), { headers: this.headers });
+    return this.http.post<Produto>(this._baseUrlApi.produto + "api/produto/deletar", JSON.stringify(produto), { headers: this.headers });
   }
 
   public obterTodosProdutos(): Observable<Produto[]> {
-    return this.http.get<Produto[]>(this._baseUrl + "http://localhost:5005/api/produto/");
+    return this.http.get<Produto[]>(this._baseUrlApi.produto + "api/produto/");
   }
 
   public obterProduto(produtoId: number): Observable<Produto> {
-    return this.http.get<Produto>(this._baseUrl + "http://localhost:5005/api/produto/");
+    return this.http.get<Produto>(this._baseUrlApi.produto + "api/produto/");
   }
 
   enviarArquivo(arquivoSelecionado: File): Observable<boolean> {
     const formData: FormData = new FormData();
     formData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name)
-    return this.http.post<boolean>(this._baseUrl + "http://localhost:5005/api/produto/enviarArquivo", formData);
+    return this.http.post<boolean>(this._baseUrlApi.produto + "api/produto/enviarArquivo", formData);
   }
 }

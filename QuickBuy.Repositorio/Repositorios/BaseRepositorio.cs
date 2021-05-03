@@ -8,8 +8,6 @@ namespace QuickBuy.Repositorio.Repositorios
     public class BaseRepositorio <TEntity> : IBaseRepositorio <TEntity> where TEntity : class
     {
         protected readonly QuickBuyContexto QuickBuyContexto;
-
-        
         public BaseRepositorio(QuickBuyContexto quickBuyContexto)
         {
             QuickBuyContexto = quickBuyContexto;
@@ -34,7 +32,6 @@ namespace QuickBuy.Repositorio.Repositorios
         public IEnumerable<TEntity> ObterTodos()
         {
             return QuickBuyContexto.Set<TEntity>().ToList();
-
         }
 
         public void Atualizar(TEntity entity)
@@ -42,12 +39,10 @@ namespace QuickBuy.Repositorio.Repositorios
             QuickBuyContexto.Set<TEntity>().Update(entity);
             QuickBuyContexto.SaveChanges();
         }
-
         public void Remover(TEntity entity)
         {
             QuickBuyContexto.Remove(entity);
             QuickBuyContexto.SaveChanges();
-
         }
     }
 }
