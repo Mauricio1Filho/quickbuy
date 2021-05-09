@@ -26,7 +26,8 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css",
-              "src/assets/css/demo.css"
+              "src/assets/css/demo.css",
+              "src/assets/css/icon-font-material-design.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

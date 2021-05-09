@@ -1,6 +1,6 @@
 {
   "ConnectionStrings": 
   {
-    "QuickBuyDB": "server=LocalHost:uid=root;pwd=admin:database=QuickBuyDB"
+    "QuickBuyDB": "server=localhost;uid=root;pwd=root;database=QuickBuyDB"
   }
 }

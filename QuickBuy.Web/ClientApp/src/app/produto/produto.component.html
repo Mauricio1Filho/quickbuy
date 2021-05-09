@@ -5,7 +5,10 @@
        name="nomeProduto"
        placeholder="Nome do Produto"
        class="form-control mb-2 col-md-4"
-       [ngClass]=""
+       [ngClass]="{
+       'is-invalid':nome.invalid && (nome.dirty || nome.touched),
+            'is-valid':nome.valid && (nome.dirty || nome.touched)
+       }"
        [(ngModel)]="produto.nome"
        #nome="ngModel"
        required />
@@ -21,23 +24,33 @@
        name="descricaoProduto"
        placeholder="Descricao do Produto"
        class="form-control mb-2 col-md-4"
-       [ngClass]=""
+       [ngClass]="{
+       'is-invalid':descricao.invalid && (descricao.dirty || descricao.touched),
+            'is-valid':descricao.valid && (descricao.dirty || descricao.touched)
+       }"
        [(ngModel)]="produto.descricao"
        #descricao="ngModel"
-       required />
+       required
+       minlength="50"/>
 <div class="invalid-feedback mb-2" *ngIf="descricao.invalid && (descricao.dirty || descricao.touched)">
   <div *ngIf="descricao.errors.required">
     Descricao do produto é de preenchimento obrigatório
   </div>
+  <div *ngIf="descricao.errors.minlength">
+    Campo no minimo com 50 caracteres
+  </div>
 </div>
 
-<label for="inputpreco" class="sr-only">Preco</label>
+<label for="inputPreco" class="sr-only">Preco</label>
 <input type="number"
-       id="inputpreco"
+       id="inputPreco"
        name="precoProduto"
        placeholder="Preco"
        class="form-control mb-2 col-md-2"
-       [ngClass]=""
+       [ngClass]="{
+       'is-invalid':preco.invalid && (preco.dirty || preco.touched),
+            'is-valid':preco.valid && (preco.dirty || preco.touched)
+       }"
        [(ngModel)]="produto.preco"
        #preco="ngModel"
        required />
@@ -51,6 +64,19 @@
   <div class="custom-file col-md-3">
     <input type="file" class="custom-control-input" id="inputFile" (change)="inputChange($event.target.files)"/>
     <label for="inputFile" class="custom-file-label">Foto do Produto</label>
+
   </div>
 </div>
-<button class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
+
+<div class="form-inline">
+  <button class="btn btn-primary" style="margin-right:4px;" (click)="cadastrar()">
+    <span class="spinner-border spinner-border-sm" *ngIf="ativar_spinner"></span>
+    Cadastrar
+  </button>
+  <button class="btn btn-danger" [routerLink]="['/pesquisar-produto']">Cancelar</button>
+</div>
+
+<div class="alert alert-danger col-md-4" *ngIf="mensagem">
+  {{mensagem}}
+</div>
+

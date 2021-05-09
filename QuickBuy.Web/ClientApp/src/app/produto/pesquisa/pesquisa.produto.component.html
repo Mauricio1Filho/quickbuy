@@ -1,0 +1,22 @@
+<h1 class="h4">Pesquisa de Produtos</h1>
+<p *ngIf="!produtos">Carregando Produtos...</p>
+
+<button class="btn btn-primary mb-2" (click)="adicionarProduto()">Adicionar Produto</button>
+
+<div *ngIf="produtos" class="container-grid-produto">
+
+  <div *ngFor="let p of produtos" class="container-card">
+    <div style="margin:10px; background-color:white; padding:10px; border-radius: 30px;"><img src="http://localhost:5005/arquivos/{{p.nomeArquivo}}" class="img-grid" /></div>
+    <div style="flex:2;display:flex;justify-content:left;">{{p.nome}}</div>
+    <div style="height:100%;flex:3;">{{p.descricao}}</div>
+    <div style="flex:1;"><strong> R$ {{p.preco}}</strong></div>
+    <div style="flex:1; display:flex; justify-content:center; flex-direction:column;">
+      <span class="material-icons-outlined text-success icon-larger icon-hover" (click)="editarProduto(p)">edit</span>
+      <span>Editar</span>
+    </div>  
+    <div style="flex:1; display:flex; justify-content:center; flex-direction:column;">
+      <span class="material-icons-outlined text-danger icon-larger icon-hover" (click)="deletarProduto(p)">delete</span>
+      <span>Deletar</span>
+    </div>
+  </div>
+</div>

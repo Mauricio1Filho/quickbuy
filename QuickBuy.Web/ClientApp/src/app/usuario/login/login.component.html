@@ -5,7 +5,7 @@
     <input type="email" id="inputEmail" name="email" placeholder="Informe o Email" class="form-control mb-2"
            [ngClass]="{
             'is-invalid':email.invalid && (email.dirty || email.touched),
-            'is valid':email.valid && (email.dirty || email.touched)
+            'is-valid':email.valid && (email.dirty || email.touched)
            }"
            [(ngModel)]="usuario.email" #email="ngModel" email required />
     <div class="alert alert-danger" *ngIf="email.invalid && (email.dirty || email.touched)">
@@ -21,8 +21,7 @@
            [(ngModel)]="usuario.senha"
            #senha="ngModel"
            [ngClass]="{
-            'is-invalid':email.invalid && (email.dirty || email.touched),
-            'is valid':email.valid && (email.dirty || email.touched)
+            'is-invalid':email.invalid && (email.dirty || email.touched)
            }"
            required />
     <div class="alert alert-danger" *ngIf="senha.invalid && (senha.dirty || senha.touched)">
@@ -39,8 +38,7 @@
       {{mensagem}}
     </div>
     <div style="margin-top: 15px">
-      <img src="http://localhost/images/clearornes.png" width="300" title="QuickBuy" />
+      <img src="http://localhost/images/GUFREESTEP.gif" width="300" title="QuickBuy" />
     </div>
   </form>
 </div>
-

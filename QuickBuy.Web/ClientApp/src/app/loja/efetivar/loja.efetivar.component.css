@@ -1,0 +1,10 @@
+.icon-larger {
+  font-size: 35px;
+}
+
+.icon-hover:hover {
+  background-color: #ddf1f1;
+  cursor: pointer;
+  font-size: 30px;
+  border-radius: 8px;
+}

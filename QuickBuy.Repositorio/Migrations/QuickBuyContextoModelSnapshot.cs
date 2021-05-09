@@ -90,7 +90,10 @@ namespace QuickBuy.Repositorio.Migrations
                         .IsRequired()
                         .HasMaxLength(128);
 
-                    b.Property<decimal>("Preco");
+                    b.Property<string>("NomeArquivo");
+
+                    b.Property<decimal>("Preco")
+                        .HasColumnType("decimal(19,4)");
 
                     b.HasKey("Id");
 
@@ -101,6 +104,8 @@ namespace QuickBuy.Repositorio.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("EhAdministrador");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -136,6 +141,8 @@ namespace QuickBuy.Repositorio.Migrations
                         .IsRequired()
                         .HasMaxLength(32);
 
+                    b.Property<int>("Tipo");
+
                     b.HasKey("Id");
 
                     b.ToTable("FormaPagamento");
@@ -145,19 +152,22 @@ namespace QuickBuy.Repositorio.Migrations
                         {
                             Id = 1,
                             Descricao = "Forma de Pagamento Boleto",
-                            Nome = "Boleto"
+                            Nome = "Boleto",
+                            Tipo = 0
                         },
                         new
                         {
                             Id = 2,
                             Descricao = "Forma de Pagamento Cartao de Credito",
-                            Nome = "Cartao de Credito"
+                            Nome = "Cartao de Credito",
+                            Tipo = 0
                         },
                         new
                         {
                             Id = 3,
                             Descricao = "Forma de Pagamento Deposito",
-                            Nome = "Deposito"
+                            Nome = "Deposito",
+                            Tipo = 0
                         });
                 });
 

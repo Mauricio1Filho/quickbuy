@@ -8,21 +8,24 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using QuickBuy.Dominio.Contratos;
+using QuickBuy.Dominio.Ferramentas;
 using QuickBuy.Repositorio.Contexto;
 using QuickBuy.Repositorio.Repositorios;
+using System.Threading;
 
 namespace QuickBuy.Web
 {
     public class Startup
     {
         public IConfiguration Configuration { get; }
+      
 
         public Startup(IConfiguration configuration)
         {
             var builder = new ConfigurationBuilder();
             builder.AddJsonFile("config.json", optional: false, reloadOnChange: true);
 
-            Configuration = configuration;
+            Configuration = configuration;           
         }
 
         
@@ -46,6 +49,7 @@ namespace QuickBuy.Web
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+         
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

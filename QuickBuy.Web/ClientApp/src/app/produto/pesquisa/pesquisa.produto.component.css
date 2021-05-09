@@ -1,0 +1,46 @@
+.img-grid{
+    width: 100px;
+    height: 100px;
+}
+.container-grid-produto {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border: solid 1px #ddd;
+  margin: 5px;
+  padding-top: 10px;
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px #dcdcdc;
+}
+.container-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  flex-direction: row;
+  border: solid 1px #c4c4c4;
+  margin: 0px 10px 10px 10px;
+  height: 150px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+}
+.container-card div {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.icon-larger {
+  font-size: 35px;
+}
+
+.icon-hover:hover {
+  background-color: #ddf1f1;
+  cursor: pointer;
+  font-size: 30px;
+  border-radius: 8px;
+}  
+
+

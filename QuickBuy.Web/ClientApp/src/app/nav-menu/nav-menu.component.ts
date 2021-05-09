@@ -25,9 +25,13 @@ export class NavMenuComponent {
     return this.usuarioServico.usuario_autenticado();
   }
 
+  public usuario_adiministrador(): boolean {
+    return this.usuarioServico.usuario_administrador();
+  }
+
   sair() {
     this.usuarioServico.limpar_sessao();
-    this.router.navigate(['/']);
+    this.router.navigate(['/entrar']);
   }
 
   get usuario() {

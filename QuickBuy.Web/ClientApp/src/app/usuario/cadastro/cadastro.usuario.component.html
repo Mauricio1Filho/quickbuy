@@ -27,7 +27,7 @@
            #senha="ngModel"
            [ngClass]="{
             'is-invalid':email.invalid && (email.dirty || email.touched),
-            'is valid':email.valid && (email.dirty || email.touched)
+            'is-valid':email.valid && (email.dirty || email.touched)
            }"
            required />
 
@@ -41,7 +41,7 @@
     <input type="text" id="inputNome" name="nome" placeholder="Nome" class="form-control mb-2"
            [ngClass]="{
             'is-invalid':nome.invalid && (nome.dirty || nome.touched),
-            'is valid':nome.valid && (nome.dirty || nome.touched)
+            'is-valid':nome.valid && (nome.dirty || nome.touched)
            }"
            [(ngModel)]="usuario.nome"
            #nome="ngModel"
@@ -57,7 +57,7 @@
     <input type="text" id="inputSobreNome" name="sobreNome" placeholder="Sobre Nome" class="form-control mb-2"
            [ngClass]="{
             'is-invalid':sobreNome.invalid && (sobreNome.dirty || sobreNome.touched),
-            'is valid':sobreNome.valid && (sobreNome.dirty || sobreNome.touched)
+            'is-valid':sobreNome.valid && (sobreNome.dirty || sobreNome.touched)
            }"
            [(ngModel)]="usuario.sobreNome"
            #sobreNome="ngModel"

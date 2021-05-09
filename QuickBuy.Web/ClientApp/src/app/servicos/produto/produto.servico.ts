@@ -26,28 +26,28 @@ export class ProdutoServico implements OnInit {
   }
 
   public cadastrar(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(this._baseUrlApi.produto + "api/produto/cadastrar", JSON.stringify(produto), { headers: this.headers });
+    return this.http.post<Produto>(this._baseUrlApi.produto + "api/produto", JSON.stringify(produto), { headers: this.headers });
   }
 
   public salvar(produto: Produto): Observable<Produto> {
     return this.http.post<Produto>(this._baseUrlApi.produto + "api/produto/salvar", JSON.stringify(produto), { headers: this.headers });
   }
 
-  public deletar(produto: Produto): Observable<Produto> {
-    return this.http.post<Produto>(this._baseUrlApi.produto + "api/produto/deletar", JSON.stringify(produto), { headers: this.headers });
+  public deletar(produto: Produto): Observable<Produto[]> {
+    return this.http.post<Produto[]>(this._baseUrlApi.produto + "api/produto/deletar", JSON.stringify(produto), { headers: this.headers });
   }
 
   public obterTodosProdutos(): Observable<Produto[]> {
-    return this.http.get<Produto[]>(this._baseUrlApi.produto + "api/produto/");
+    return this.http.get<Produto[]>(this._baseUrlApi.produto + "api/produto");
   }
 
   public obterProduto(produtoId: number): Observable<Produto> {
-    return this.http.get<Produto>(this._baseUrlApi.produto + "api/produto/");
+    return this.http.get<Produto>(this._baseUrlApi.produto + "api/produto");
   }
 
-  enviarArquivo(arquivoSelecionado: File): Observable<boolean> {
+  enviarArquivo(arquivoSelecionado: File): Observable<string> {
     const formData: FormData = new FormData();
     formData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name)
-    return this.http.post<boolean>(this._baseUrlApi.produto + "api/produto/enviarArquivo", formData);
+    return this.http.post<string>(this._baseUrlApi.produto + "api/produto/enviarArquivo", formData);
   }
 }
