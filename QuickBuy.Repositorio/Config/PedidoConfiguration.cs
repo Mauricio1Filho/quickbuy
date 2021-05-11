@@ -34,7 +34,7 @@ namespace QuickBuy.Repositorio.Config
                 .HasMaxLength(128);
 
             builder
-                .Property(p => p.EderecoCompleto)
+                .Property(p => p.EnderecoCompleto)
                 .IsRequired()
                 .HasMaxLength(128);
 

@@ -7,7 +7,8 @@ import { BaseUrlApi } from "../../modelo/ambiente/base.url.api";
 @Injectable({
   providedIn: "root"
 })
-export class UsuarioServico {
+export class UsuarioServico
+{
 
   private baseUrlApi: BaseUrlApi
 
@@ -35,7 +36,7 @@ export class UsuarioServico {
   }
 
   public usuario_administrador(): boolean {
-    return this.usuario_autenticado() && this.usuario.ehadministrador;
+    return this.usuario_autenticado() && this.usuario.ehAdministrador;
   }
 
   public limpar_sessao() {

@@ -16,9 +16,9 @@ namespace QuickBuy.Web.Controllers
     {
         private readonly IProdutoRepositorio _produtoRepositorio;
         private IHttpContextAccessor _httpContextAccessor;
-        private IHostingEnvironment _hostingEvironment;
+        private IWebHostEnvironment _hostingEvironment;
         public ProdutoController(IProdutoRepositorio produtoRepositorio,
-                                    IHttpContextAccessor httpContextAccessor, IHostingEnvironment hostingEnvironment)
+                                    IHttpContextAccessor httpContextAccessor, IWebHostEnvironment hostingEnvironment)
         {
             _produtoRepositorio = produtoRepositorio;
             _httpContextAccessor = httpContextAccessor;

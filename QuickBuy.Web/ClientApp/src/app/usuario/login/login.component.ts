@@ -29,6 +29,7 @@ export class LoginComponent implements OnInit {
     this.usuarioServico.verificarUsuario(this.usuario)
       .subscribe(
         usuario_json => {
+          console.log("usuario:",usuario_json);
           this.usuarioServico.usuario = usuario_json;
 
           if (this.returnUrl == null) {
@@ -42,7 +43,6 @@ export class LoginComponent implements OnInit {
           this.router.navigate([this.returnUrl]);
         },
         err => {
-          console.log(err.error);
           this.mensagem = err.error;
           this.ativar_spinner = false;
         }
