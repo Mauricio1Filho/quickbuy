@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using QuickBuy.Dominio.Contratos;
+using QuickBuy.Dominio.Entidades;
 using QuickBuy.Repositorio.Contexto;
 
 namespace QuickBuy.Repositorio.Repositorios
@@ -44,5 +45,6 @@ namespace QuickBuy.Repositorio.Repositorios
             QuickBuyContexto.Remove(entity);
             QuickBuyContexto.SaveChanges();
         }
+               
     }
 }
