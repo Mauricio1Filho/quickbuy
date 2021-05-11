@@ -1,24 +1,38 @@
-FROM microsoft/dotnet:2.2-sdk-alpine AS build-env
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
+RUN apt-get update -yq \
+    && apt-get install curl gnupg -yq \
+    && curl -sL https://deb.nodesource.com/setup_10.x | bash \
+    && apt-get install nodejs -yq
 WORKDIR /app
+EXPOSE 80
+EXPOSE 443
 
-# Copiar csproj e restaurar dependencias
-COPY . ./
-RUN dotnet restore
-RUN dotnet publish -c RELEASE --self-contained  -r linux-x64 -o out
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
+RUN apt-get update -yq \
+    && apt-get install curl gnupg -yq \
+    && curl -sL https://deb.nodesource.com/setup_10.x | bash \
+    && apt-get install nodejs -yq
+WORKDIR /src
 
-# Build da aplicacao
-COPY . ./
-RUN dotnet publish -c Release -o out
+RUN npm install
+RUN npm run build -- --prod
 
-# Build da imagem
-FROM microsoft/dotnet:2.2-aspnetcore-runtime-alpine
 
-RUN sed -i 's/CipherString = DEFAULT@SECLEVEL=2/CipherString = DEFAULT@SECLEVEL=1/' /etc/ssl/openssl.cnf
+COPY ["netcore-angular-docker/netcore-angular-docker.csproj", "netcore-angular-docker/"]
 
+COPY ["QuickBuy.Web/QuickBuy.Web.csproj", "QuickBuy.Web/"]
+COPY ["QuickBuy.Dominio/QuickBuy.Dominio.csproj", "QuickBuy.Dominio/"]
+COPY ["QuickBuy.Repositorio/QuickBuy.Repositorio.csproj", "QuickBuy.Repositorio/"]
+
+RUN dotnet restore "QuickBuy.Web/QuickBuy.Web.csproj"
+COPY . .
+WORKDIR "/src/QuickBuy.Web"
+RUN dotnet build "QuickBuy.Web.csproj" -c Release -o /app/build
+
+FROM build AS publish
+RUN dotnet publish "QuickBuy.Web.csproj" -c Release -o /app/publish
+
+FROM base AS final
 WORKDIR /app
-
-COPY --from=build-env /app/out .
-
-EXPOSE 80	
-
-ENTRYPOINT ["dotnet", "QuickBuy.Api.Usuarios.dll"]
+COPY --from=publish /app/publish .
+ENTRYPOINT ["dotnet", "QuickBuy.Web.dll"]
