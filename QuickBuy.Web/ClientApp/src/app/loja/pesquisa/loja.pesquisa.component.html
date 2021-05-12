@@ -5,12 +5,12 @@
     <div class="col-md-4 mb-4" *ngFor="let p of produtos">
       <a (click)="abrirProduto(p)" style="cursor:pointer;">
         <div class="card">
-          <img class="card-top" src="http://localhost:5005/arquivos/{{p.nomeArquivo}}"
+          <img class="card-top" src="{{urlServerImage}}/images/{{p.nomeArquivo}}"
                style="width:200px;height:200px;" />
           <div class="card-body">
             <h5 class="card-title">{{p.nome}}</h5>
             <div class="card-text">{{p.descricao | truncate: 50}}</div>
-            <h5 class="h5">{{p.preco}}</h5>
+            <h5 class="h5">{{p.preco}}</h5>           
           </div>
         </div>
       </a>

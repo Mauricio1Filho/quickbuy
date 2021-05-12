@@ -13,7 +13,7 @@ import { environment } from "../../../environments/environment";
 export class LojaPesquisaComponent implements OnInit {
 
   public produtos: Produto[];
-
+ 
   ngOnInit(): void {
     
   }
@@ -35,6 +35,10 @@ export class LojaPesquisaComponent implements OnInit {
     sessionStorage.setItem('produtoDetalhe', JSON.stringify(produto));
     this.router.navigate(['/loja-produto']);
   }
+  get urlServerImage() {
+    return environment.urlServerImages;
+  }
+
 
 }
 

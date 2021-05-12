@@ -21,7 +21,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://192.168.0.84:5004",    
+      "applicationUrl": "http://192.168.0.83:4050",    
       "jsWebView2Debugging": false
     }
   }

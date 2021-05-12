@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 import { ItemPedido, } from '../../modelo/item-pedido/itemPedido';
 import { Pedido } from '../../modelo/pedido/pedido';
 import { Produto } from '../../modelo/produto/produto';
@@ -92,5 +93,9 @@ export class LojaEfetivarComponent implements OnInit {
       pedido.itensPedido.push(itemPedido);
     }
     return pedido;
+  }
+
+  get urlServerImage() {
+    return environment.urlServerImages;
   }
 }

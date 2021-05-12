@@ -7,11 +7,11 @@ exports.environment = void 0;
 exports.environment = {
     production: false,
     urlAPI: {
-        usuario: "http://192.168.0.84:5004/",
-        produto: "http://192.168.0.84:5004/",
-        pedido: "http://192.168.0.84:5004/"
+        usuario: "http://192.168.0.83:4050/",
+        produto: "http://192.168.0.83:4050/",
+        pedido: "http://192.168.0.83:4050/"
     },
-    urlServerImages: "http://192.168.0.84"
+    urlServerImages: "http://192.168.0.83:8080"
 };
 /*
  * In development mode, to ignore zone related error stack frames such as

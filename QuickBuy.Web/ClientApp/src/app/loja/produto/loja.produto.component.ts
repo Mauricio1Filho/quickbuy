@@ -15,7 +15,6 @@ import { LojaCarrinho } from '../carrinho/loja.carrinho';
 export class LojaProdutoComponent implements OnInit {
   public produto: Produto;
   public carrinhoCompras: LojaCarrinho;
-  public urlServerImages = environment.urlServerImages;
 
   ngOnInit(): void {
     this.carrinhoCompras = new LojaCarrinho();
@@ -32,5 +31,8 @@ export class LojaProdutoComponent implements OnInit {
   public comprar() {
     this.carrinhoCompras.adicionar(this.produto);
     this.router.navigate(["/loja-efetivar"]);
+  }
+  get urlServerImage() {
+    return environment.urlServerImages;
   }
 }

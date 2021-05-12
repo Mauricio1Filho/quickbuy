@@ -22,6 +22,8 @@ FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 
 ENV BuildingDocker true
 
+ENV ASPNETCORE_ENVIRONMENT Production
+
 WORKDIR /src
 
 COPY ["QuickBuy.Web/QuickBuy.Web.csproj", "QuickBuy.Web/"]

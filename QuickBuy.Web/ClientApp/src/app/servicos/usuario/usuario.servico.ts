@@ -2,7 +2,6 @@ import { Inject, Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Usuario } from "../../modelo/usuario/usuario";
-import { BaseUrlApi } from "../../modelo/ambiente/base.url.api";
 import { environment } from "../../../environments/environment";
 
 @Injectable({
