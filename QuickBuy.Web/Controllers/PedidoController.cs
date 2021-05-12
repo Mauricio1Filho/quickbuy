@@ -58,6 +58,5 @@ namespace QuickBuy.Web.Controllers
                 return BadRequest(ex.ToString());
             }
         }
-
     }
 }

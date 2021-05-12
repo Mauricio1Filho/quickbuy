@@ -3,18 +3,15 @@ import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { Usuario } from "../../modelo/usuario/usuario";
 import { BaseUrlApi } from "../../modelo/ambiente/base.url.api";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
   providedIn: "root"
 })
 export class UsuarioServico
 {
-
-  private baseUrlApi: BaseUrlApi
-
-  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string, baseUrlApi: BaseUrlApi) {
-    this.baseUrl = baseUrl;
-    this.baseUrlApi = baseUrlApi;
+  constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    this.baseUrl = baseUrl;  
   }
 
   private baseUrl: string;
@@ -49,10 +46,10 @@ export class UsuarioServico
   }
 
   public verificarUsuario(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.baseUrlApi.usuario + "api/usuario/verificarUsuario", usuario, { headers: this.headers });
+    return this.http.post<Usuario>(environment.urlAPI.usuario + "api/usuario/verificarUsuario", usuario, { headers: this.headers });
   }
 
   public cadastrarUsuario(usuario: Usuario): Observable<Usuario> {
-    return this.http.post<Usuario>(this.baseUrlApi.usuario + "api/usuario", usuario, { headers: this.headers });
+    return this.http.post<Usuario>(environment.urlAPI.usuario + "api/usuario", usuario, { headers: this.headers });
   }
 }

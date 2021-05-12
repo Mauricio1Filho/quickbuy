@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { environment } from '../../../environments/environment';
 import { Produto } from '../../modelo/produto/produto';
 import { ProdutoServico } from '../../servicos/produto/produto.servico';
 import { LojaCarrinho } from '../carrinho/loja.carrinho';
+ 
 
 @Component({
   selector: "loja-app-produto",
@@ -13,6 +15,7 @@ import { LojaCarrinho } from '../carrinho/loja.carrinho';
 export class LojaProdutoComponent implements OnInit {
   public produto: Produto;
   public carrinhoCompras: LojaCarrinho;
+  public urlServerImages = environment.urlServerImages;
 
   ngOnInit(): void {
     this.carrinhoCompras = new LojaCarrinho();

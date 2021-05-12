@@ -1,17 +1,18 @@
+"use strict";
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
-export const environment = {
-  production: false,
-  urlAPI: {
-    usuario: "http://192.168.0.84:5004/",
-    produto: "http://192.168.0.84:5004/",
-    pedido: "http://192.168.0.84:5004/"
-  },
-  urlServerImages: "http://192.168.0.84"
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.environment = void 0;
+exports.environment = {
+    production: false,
+    urlAPI: {
+        usuario: "http://192.168.0.84:5004/",
+        produto: "http://192.168.0.84:5004/",
+        pedido: "http://192.168.0.84:5004/"
+    },
+    urlServerImages: "http://192.168.0.84"
 };
-
 /*
  * In development mode, to ignore zone related error stack frames such as
  * `zone.run`, `zoneDelegate.invokeTask` for easier debugging, you can
@@ -19,3 +20,4 @@ export const environment = {
  * because it will have performance impact when throw error
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+//# sourceMappingURL=environment.js.map

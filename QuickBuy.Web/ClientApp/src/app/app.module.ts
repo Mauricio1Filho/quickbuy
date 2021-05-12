@@ -55,7 +55,7 @@ import { LojaCompraSucessoComponent } from './loja/compra-sucesso/loja.compra.su
     ])
   ],
 
-  providers: [UsuarioServico, ProdutoServico, BaseUrlApi, PedidoServico],
+  providers: [UsuarioServico, ProdutoServico, PedidoServico],
   bootstrap: [AppComponent]
 })
 

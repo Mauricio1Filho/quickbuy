@@ -1,3 +1,5 @@
+
+
 <h1 class="h4">Pesquisa de Produtos</h1>
 <p *ngIf="!produtos">Carregando Produtos...</p>
 
@@ -6,7 +8,7 @@
 <div *ngIf="produtos" class="container-grid-produto">
 
   <div *ngFor="let p of produtos" class="container-card">
-    <div style="margin:10px; background-color:white; padding:10px; border-radius: 30px;"><img src="http://localhost:5005/arquivos/{{p.nomeArquivo}}" class="img-grid" /></div>
+    <div style="margin:10px; background-color:white; padding:10px; border-radius: 30px;"><img src="{{urlServerImages}}/images/{{p.nomeArquivo}}" class="img-grid" /></div>
     <div style="flex:2;display:flex;justify-content:left;">{{p.nome}}</div>
     <div style="height:100%;flex:3;">{{p.descricao}}</div>
     <div style="flex:1;"><strong> R$ {{p.preco}}</strong></div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Produto } from "../../modelo/produto/produto";
 import { ProdutoServico } from "../../servicos/produto/produto.servico";
+import { environment } from "../../../environments/environment";
 
 @Component({
   selector: "app-loja",
@@ -14,10 +15,11 @@ export class LojaPesquisaComponent implements OnInit {
   public produtos: Produto[];
 
   ngOnInit(): void {
-
+    
   }
 
-  constructor(private produtoServico: ProdutoServico, private router:Router) {
+  constructor(private produtoServico: ProdutoServico, private router: Router) {
+   
     this.produtoServico.obterTodosProdutos()
       .subscribe(
         produtos => {
