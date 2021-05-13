@@ -48,6 +48,6 @@ export class ProdutoServico implements OnInit {
   enviarArquivo(arquivoSelecionado: File): Observable<string> {
     const formData: FormData = new FormData();
     formData.append("arquivoEnviado", arquivoSelecionado, arquivoSelecionado.name)
-    return this.http.post<string>("http://192.168.0.84:5004/" + "api/produto/enviarArquivo", formData);
+    return this.http.post<string>(environment.urlAPI.produto + "api/produto/enviarArquivo", formData);
   }
 }
