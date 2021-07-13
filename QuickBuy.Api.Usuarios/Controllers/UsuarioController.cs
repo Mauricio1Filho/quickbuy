@@ -18,7 +18,7 @@ namespace QuickBuy.Web.Controllers
         }
 
         [HttpGet]
-        public ActionResult Get([FromQuery] string nome)
+        public ActionResult Get([FromQuery]string nome)
         {
             try
             {

@@ -84,11 +84,11 @@ namespace QuickBuy.Web.Controllers
         public IActionResult EnviarArquivo()
         {
             try
-            {
+            {               
                 var caminho = createFile(_httpContextAccessor.HttpContext.Request.Form.Files["arquivoEnviado"]);
                 UploadFtpFile(caminho);
                 return Json(Path.GetFileName(caminho));
-
+              
             }
             catch (Exception ex)
             {
@@ -112,7 +112,7 @@ namespace QuickBuy.Web.Controllers
             var pastaArquivos = _hostingEvironment.WebRootPath + "\\arquivos\\";
             var nomeCompletoArquivo = pastaArquivos + novoNomeArquivo;
 
-            using (var streamArquivo = new FileStream(nomeCompletoArquivo, FileMode.Create))
+            using (var streamArquivo = new FileStream(nomeCompletoArquivo, FileMode.Create ))
             {
                 formFile.CopyTo(streamArquivo);
             }
@@ -120,9 +120,9 @@ namespace QuickBuy.Web.Controllers
             return nomeCompletoArquivo;
         }
         public void UploadFtpFile(string caminho)
-        {
-            FtpWebRequest request;
-            string absoluteFileName = Path.GetFileName(caminho);
+        {   
+            FtpWebRequest request;                 
+            string absoluteFileName = Path.GetFileName(caminho);   
             var serverPath = string.Format(@"ftp://{0}/{1}", "192.168.0.83", absoluteFileName);
             request = WebRequest.Create(new Uri(serverPath)) as FtpWebRequest;
             request.Method = WebRequestMethods.Ftp.UploadFile;
@@ -146,7 +146,7 @@ namespace QuickBuy.Web.Controllers
 
             }
 
-
+           
 
 
         }
