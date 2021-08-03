@@ -1,9 +1,10 @@
+const url = "http://192.168.0.84:4050/"
 export const environment = {
   production: true,
-   urlAPI: {
-    usuario: "http://192.168.0.10:4050/",
-    produto: "http://192.168.0.10:4050/",
-    pedido: "http://192.168.0.10:4050/"
+  urlAPI: {
+    usuario: url,
+    produto: url,
+    pedido: url
   },
-  urlServerImages: "http://192.168.0.83:8080"
+  urlServerImages: "http://192.168.0.84:8080/"
 };
