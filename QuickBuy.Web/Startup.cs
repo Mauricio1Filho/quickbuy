@@ -91,7 +91,7 @@ namespace QuickBuy.Web
                 if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
-                    spa.UseProxyToSpaDevelopmentServer("http://app.quickbuy.net.br:4200/");
+                    spa.UseProxyToSpaDevelopmentServer("http://192.168.0.84:4200/");
                 }
             });
         }

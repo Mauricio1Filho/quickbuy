@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.environment = void 0;
-var url = "http://192.168.0.84:4050/";
+var url = "http://localhost:4050/";
 exports.environment = {
     production: true,
     urlAPI: {

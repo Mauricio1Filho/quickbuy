@@ -1,4 +1,4 @@
-const url = "http://192.168.0.84:4050/"
+const url = "http://localhost:4050/"
 export const environment = {
   production: true,
   urlAPI: {
