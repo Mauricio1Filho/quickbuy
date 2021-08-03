@@ -52,18 +52,18 @@ namespace QuickBuy.Web
                 configuration.RootPath = "ClientApp/dist";
             });
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy(name: ApplicationCors, builder => { builder.WithOrigins("http://app.quickbuy.net.br"); });
-            });
+            //services.AddCors(options =>
+            //{
+            //    options.AddPolicy(name: ApplicationCors, builder => { builder.WithOrigins("http://app.quickbuy.net.br"); });
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            //app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
-            app.UseCors(ApplicationCors);
+            app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            //app.UseCors(ApplicationCors);
 
             if (env.IsDevelopment())
             {
