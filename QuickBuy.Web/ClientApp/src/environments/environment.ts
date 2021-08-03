@@ -1,15 +1,15 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-
+const url = "http://192.168.0.84:4050/"
 export const environment = {
   production: false,
   urlAPI: {
-    usuario: "http://192.168.0.83:4050/",
-    produto: "http://192.168.0.83:4050/",
-    pedido: "http://192.168.0.83:4050/"
+    usuario: url,
+    produto: url,
+    pedido: url
   },
-  urlServerImages: "http://192.168.0.83:8080"
+  urlServerImages: "http://192.168.0.84:8080/"
 };
 
 /*

@@ -21,7 +21,7 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
-      "applicationUrl": "http://192.168.0.83:4050",    
+      "applicationUrl": "http://app.quickbuy.net.br:4050",
       "jsWebView2Debugging": false
     }
   }

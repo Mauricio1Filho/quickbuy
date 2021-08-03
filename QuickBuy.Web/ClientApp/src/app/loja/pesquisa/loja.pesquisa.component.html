@@ -1,16 +1,15 @@
-
 <div *ngIf="!produtos">Carregando</div>
 <div class="container" *ngIf="produtos">
   <div class="row">
     <div class="col-md-4 mb-4" *ngFor="let p of produtos">
       <a (click)="abrirProduto(p)" style="cursor:pointer;">
-        <div class="card">
+        <div class="card hover_card" style="height:450px;">
           <img class="card-top" src="{{urlServerImage}}/images/{{p.nomeArquivo}}"
-               style="width:200px;height:200px;" />
+               style="width:200px;height:200px;margin-left:60px;" />
           <div class="card-body">
             <h5 class="card-title">{{p.nome}}</h5>
-            <div class="card-text">{{p.descricao | truncate: 50}}</div>
-            <h5 class="h5">{{p.preco}}</h5>           
+            <div class="card-text">{{p.descricao | truncate: 130}}</div>
+            <div class="h3" style="position:absolute;bottom:10px;">R$&nbsp;{{p.preco}}</div>
           </div>
         </div>
       </a>

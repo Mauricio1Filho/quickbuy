@@ -17,17 +17,17 @@ namespace QuickBuy.Web
     public class Startup
     {
         public IConfiguration Configuration { get; }
-      
+        readonly string ApplicationCors = "_applicationCors";
 
         public Startup(IConfiguration configuration)
         {
             var builder = new ConfigurationBuilder();
             builder.AddJsonFile("config.json", optional: false, reloadOnChange: true);
 
-            Configuration = configuration;           
+            Configuration = configuration;
         }
 
-        
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -46,10 +46,15 @@ namespace QuickBuy.Web
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
             services.AddScoped<IPedidoRepositorio, PedidoRepositorio>();
 
-                       // In production, the Angular files will be served from this directory
+            // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
             {
                 configuration.RootPath = "ClientApp/dist";
+            });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy(name: ApplicationCors, builder => { builder.WithOrigins("http://app.quickbuy.net.br"); });
             });
         }
 
@@ -57,7 +62,9 @@ namespace QuickBuy.Web
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-           // app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            //app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+            app.UseCors(ApplicationCors);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -68,7 +75,7 @@ namespace QuickBuy.Web
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-        
+
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
             app.UseRouting();
@@ -84,7 +91,7 @@ namespace QuickBuy.Web
                 if (env.IsDevelopment())
                 {
                     spa.UseAngularCliServer(npmScript: "start");
-                    spa.UseProxyToSpaDevelopmentServer("http://localhost:4200/");
+                    spa.UseProxyToSpaDevelopmentServer("http://app.quickbuy.net.br:4200/");
                 }
             });
         }

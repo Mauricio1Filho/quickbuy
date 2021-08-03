@@ -1,17 +1,18 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.environment = void 0;
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.environment = void 0;
+var url = "http://192.168.0.84:4050/";
 exports.environment = {
     production: false,
     urlAPI: {
-        usuario: "http://192.168.0.83:4050/",
-        produto: "http://192.168.0.83:4050/",
-        pedido: "http://192.168.0.83:4050/"
+        usuario: url,
+        produto: url,
+        pedido: url
     },
-    urlServerImages: "http://192.168.0.83:8080"
+    urlServerImages: "http://192.168.0.84:8080/"
 };
 /*
  * In development mode, to ignore zone related error stack frames such as
