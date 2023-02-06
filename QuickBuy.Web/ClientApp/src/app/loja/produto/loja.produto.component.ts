@@ -32,7 +32,7 @@ export class LojaProdutoComponent implements OnInit {
     this.carrinhoCompras.adicionar(this.produto);
     this.router.navigate(["/loja-efetivar"]);
   }
-  get urlServerImage() {
-    return environment.urlServerImages;
-  }
+  //get urlServerImage() {
+  //  return environment.urlServerImages;
+  //}
 }

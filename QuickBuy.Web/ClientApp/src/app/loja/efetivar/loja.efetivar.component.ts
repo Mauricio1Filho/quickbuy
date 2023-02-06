@@ -95,7 +95,7 @@ export class LojaEfetivarComponent implements OnInit {
     return pedido;
   }
 
-  get urlServerImage() {
-    return environment.urlServerImages;
-  }
+  //get urlServerImage() {
+  //  return environment.urlServerImages;
+  //}
 }

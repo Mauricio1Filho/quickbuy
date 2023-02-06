@@ -2,7 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { Produto } from "../../modelo/produto/produto";
 import { ProdutoServico } from "../../servicos/produto/produto.servico";
-import { environment } from "../../../environments/environment";
+//import { environment } from "../../../environments/environment";
 
 @Component({
   selector: "pesquisa-produto",
@@ -13,7 +13,7 @@ import { environment } from "../../../environments/environment";
 export class PesquisaProdutoComponent implements OnInit {
 
   public produtos: Produto[];
-  public urlServerImages = environment.urlServerImages;
+  //public urlServerImages = environment.urlServerImages;
 
   ngOnInit(): void {
 

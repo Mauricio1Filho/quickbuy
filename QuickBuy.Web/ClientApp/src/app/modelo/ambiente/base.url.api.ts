@@ -5,7 +5,7 @@ import { Inject, Injectable } from "@angular/core";
 })
 
 export class BaseUrlApi {
-  public readonly usuario = "http://app.quickbuy.net.br:4050/"
-  public readonly produto = "http://app.quickbuy.net.br:4050/"
-  public readonly pedido =  "http://app.quickbuy.net.br:4050/"
+  public readonly usuario = "http://localhost:4050/"
+  public readonly produto = "http://localhost:4050/"
+  public readonly pedido =  "http://localhost:4050/"
 }

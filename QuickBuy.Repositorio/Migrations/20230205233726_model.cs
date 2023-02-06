@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace QuickBuy.Repositorio.Migrations
 {
-    public partial class PrimeiraVersaoBase : Migration
+    public partial class model : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,6 +14,7 @@ namespace QuickBuy.Repositorio.Migrations
                 {
                     Id = table.Column<int>(nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Tipo = table.Column<int>(nullable: false),
                     Nome = table.Column<string>(maxLength: 32, nullable: false),
                     Descricao = table.Column<string>(maxLength: 256, nullable: false)
                 },
@@ -30,7 +31,8 @@ namespace QuickBuy.Repositorio.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Nome = table.Column<string>(maxLength: 128, nullable: false),
                     Descricao = table.Column<string>(maxLength: 256, nullable: false),
-                    Preco = table.Column<decimal>(nullable: false)
+                    Preco = table.Column<decimal>(type: "decimal(19,4)", nullable: false),
+                    NomeArquivo = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -46,7 +48,8 @@ namespace QuickBuy.Repositorio.Migrations
                     Email = table.Column<string>(maxLength: 50, nullable: false),
                     Senha = table.Column<string>(maxLength: 200, nullable: false),
                     Nome = table.Column<string>(maxLength: 50, nullable: false),
-                    SobreNome = table.Column<string>(maxLength: 50, nullable: false)
+                    SobreNome = table.Column<string>(maxLength: 50, nullable: false),
+                    EhAdministrador = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -65,7 +68,7 @@ namespace QuickBuy.Repositorio.Migrations
                     CEP = table.Column<string>(maxLength: 11, nullable: false),
                     Estado = table.Column<string>(maxLength: 128, nullable: false),
                     Cidade = table.Column<string>(maxLength: 100, nullable: false),
-                    EderecoCompleto = table.Column<string>(maxLength: 128, nullable: false),
+                    EnderecoCompleto = table.Column<string>(maxLength: 128, nullable: false),
                     NumeroEndereco = table.Column<int>(maxLength: 8, nullable: false),
                     FormaPagamentoId = table.Column<int>(nullable: false)
                 },
@@ -106,6 +109,21 @@ namespace QuickBuy.Repositorio.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
+
+            migrationBuilder.InsertData(
+                table: "FormaPagamento",
+                columns: new[] { "Id", "Descricao", "Nome", "Tipo" },
+                values: new object[] { 1, "Forma de Pagamento Boleto", "Boleto", 0 });
+
+            migrationBuilder.InsertData(
+                table: "FormaPagamento",
+                columns: new[] { "Id", "Descricao", "Nome", "Tipo" },
+                values: new object[] { 2, "Forma de Pagamento Cartao de Credito", "Cartao de Credito", 0 });
+
+            migrationBuilder.InsertData(
+                table: "FormaPagamento",
+                columns: new[] { "Id", "Descricao", "Nome", "Tipo" },
+                values: new object[] { 3, "Forma de Pagamento Deposito", "Deposito", 0 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_ItemPedidos_PedidoId",

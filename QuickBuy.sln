@@ -1,15 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31205.134
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBuy.Dominio", "QuickBuy.Dominio\QuickBuy.Dominio.csproj", "{9E44640C-524A-4F54-955B-21547A45B81D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBuy.Repositorio", "QuickBuy.Repositorio\QuickBuy.Repositorio.csproj", "{F7BCC2F8-DD63-4D2B-9182-9F59809F0C65}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBuy.Web", "QuickBuy.Web\QuickBuy.Web.csproj", "{A7C2380B-DCAB-455D-B3A0-75108341C928}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickBuy.Api.Usuarios", "QuickBuy.Api.Usuarios\QuickBuy.Api.Usuarios.csproj", "{18C80285-C07E-4927-9E35-32B95CBA5190}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,18 +55,6 @@ Global
 		{A7C2380B-DCAB-455D-B3A0-75108341C928}.Release|x64.Build.0 = Release|Any CPU
 		{A7C2380B-DCAB-455D-B3A0-75108341C928}.Release|x86.ActiveCfg = Release|Any CPU
 		{A7C2380B-DCAB-455D-B3A0-75108341C928}.Release|x86.Build.0 = Release|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Debug|x64.Build.0 = Debug|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Debug|x86.Build.0 = Debug|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Release|x64.ActiveCfg = Release|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Release|x64.Build.0 = Release|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Release|x86.ActiveCfg = Release|Any CPU
-		{18C80285-C07E-4927-9E35-32B95CBA5190}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

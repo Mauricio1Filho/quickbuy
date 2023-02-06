@@ -35,9 +35,9 @@ export class LojaPesquisaComponent implements OnInit {
     sessionStorage.setItem('produtoDetalhe', JSON.stringify(produto));
     this.router.navigate(['/loja-produto']);
   }
-  get urlServerImage() {
-    return environment.urlServerImages;
-  }
+  //get urlServerImage() {
+  //  return environment.urlServerImages;
+  //}
 
 
 }

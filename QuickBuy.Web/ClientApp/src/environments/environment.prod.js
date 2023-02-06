@@ -9,6 +9,6 @@ exports.environment = {
         produto: url,
         pedido: url
     },
-    urlServerImages: "http://192.168.0.84:8080/"
+    //urlServerImages: "http://192.168.0.84:8080/"
 };
 //# sourceMappingURL=environment.prod.js.map

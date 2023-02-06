@@ -86,7 +86,7 @@ namespace QuickBuy.Web.Controllers
             try
             {
                 var caminho = createFile(_httpContextAccessor.HttpContext.Request.Form.Files["arquivoEnviado"]);
-                UploadFtpFile(caminho);
+                //UploadFtpFile(caminho);
                 return Json(Path.GetFileName(caminho));
 
             }
